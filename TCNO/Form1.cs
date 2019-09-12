@@ -84,7 +84,8 @@ namespace TCNO
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            metroTextBox2.Text = listBox1.SelectedItem.ToString();
+            if (listBox1.SelectedIndex >= 0)
+                metroTextBox2.Text = listBox1.SelectedItem.ToString();
         }
     }
 }
