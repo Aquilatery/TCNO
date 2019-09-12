@@ -5,4 +5,4 @@
   <img src="https://www.photo.herominyum.com/resimler/2019/09/13/9oEV.png"></>
   <img src="https://www.photo.herominyum.com/resimler/2019/09/13/9XD3.png"></>
   <img src="https://www.photo.herominyum.com/resimler/2019/09/13/9ekN.png"></>
-  <img src="https://www.photo.herominyum.com/resimler/2019/09/13/9irW.png"></>
+  <img src="https://www.photo.herominyum.com/resimler/2019/09/13/9lRP.png"></>
