@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -38,12 +39,14 @@
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // metroButton1
             // 
             this.metroButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroButton1.Location = new System.Drawing.Point(205, 103);
+            this.metroButton1.Location = new System.Drawing.Point(205, 92);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(142, 55);
             this.metroButton1.TabIndex = 0;
@@ -156,7 +159,7 @@
             // metroButton3
             // 
             this.metroButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroButton3.Location = new System.Drawing.Point(204, 231);
+            this.metroButton3.Location = new System.Drawing.Point(204, 206);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(142, 55);
             this.metroButton3.TabIndex = 6;
@@ -170,7 +173,7 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel2.ForeColor = System.Drawing.Color.Lime;
-            this.metroLabel2.Location = new System.Drawing.Point(237, 470);
+            this.metroLabel2.Location = new System.Drawing.Point(232, 470);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(89, 19);
             this.metroLabel2.Style = MetroFramework.MetroColorStyle.Green;
@@ -197,11 +200,30 @@
             this.metroLabel3.UseCustomForeColor = true;
             this.metroLabel3.Visible = false;
             // 
+            // metroButton4
+            // 
+            this.metroButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton4.Enabled = false;
+            this.metroButton4.Location = new System.Drawing.Point(204, 267);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(142, 55);
+            this.metroButton4.TabIndex = 9;
+            this.metroButton4.Text = "Liste Kontrol";
+            this.metroButton4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.MetroButton4_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 503);
+            this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroButton3);
@@ -216,7 +238,7 @@
             this.Name = "Form1";
             this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "TCNO v1.1";
+            this.Text = "TCNO v1.2";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -235,6 +257,8 @@
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroButton metroButton4;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

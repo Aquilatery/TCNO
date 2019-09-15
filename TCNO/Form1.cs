@@ -33,43 +33,20 @@ namespace TCNO
                     for (int C = 0; C < Count; C++)
                         listBox1.Items.Add(TCN.Create(Random));
                     metroLabel1.Text = "Eleman Sayısı: " + Count2;
+                    metroButton4.Enabled = true;
                 }
                 else
-                    MetroMessageBox.Show(this, "Üretilecek TC NO Sayısını Belirtiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MetroMessageBox.Show(this, "Üretilecek TC NO Sayısını Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception)
             {
-
                 MetroMessageBox.Show(this, "Hatalı Bir TC NO Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void MetroButton2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!String.IsNullOrEmpty(metroTextBox2.Text) && !String.IsNullOrWhiteSpace(metroTextBox2.Text) && metroTextBox2.Text.Length == 11 && !metroTextBox2.Text.Contains(" "))
-                {
-                    ulong Count = Convert.ToUInt64(metroTextBox2.Text);
-                    if (TCN.Check(metroTextBox2.Text))
-                    {
-                        metroLabel2.Visible = true;
-                        metroLabel3.Visible = false;
-                    }
-                    else
-                    {
-                        metroLabel2.Visible = false;
-                        metroLabel3.Visible = true;
-                    }
-                }
-                else
-                    MetroMessageBox.Show(this, "Kontrol Edilecek TC NO Belirtiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (Exception)
-            {
-
-                MetroMessageBox.Show(this, "Hatalı Bir TC NO Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Kontrol(metroTextBox2.Text);
         }
 
         private void MetroButton3_Click(object sender, EventArgs e)
@@ -80,12 +57,86 @@ namespace TCNO
             Count2 = 0;
             metroLabel2.Visible = false;
             metroLabel3.Visible = false;
+            metroButton4.Enabled = false;
+        }
+
+        private void MetroButton4_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+                Kontrol2();
+            else if (listBox1.Items.Count >= 1)
+            {
+                listBox1.SelectedIndex = 0;
+                metroButton1.Enabled = false;
+                metroButton2.Enabled = false;
+                metroButton3.Enabled = false;
+                metroTextBox1.Enabled = false;
+                metroTextBox2.Enabled = false;
+                timer1.Enabled = true;
+            }
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex >= 0)
                 metroTextBox2.Text = listBox1.SelectedItem.ToString();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == listBox1.Items.Count - 1)
+            {
+                Kontrol(listBox1.SelectedItem.ToString());
+                Kontrol2();
+            }
+            else
+                Kontrol(listBox1.SelectedItem.ToString(), true);
+        }
+
+        private void Kontrol(string TXT, bool EXEC = false)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(TXT) && !String.IsNullOrWhiteSpace(TXT) && TXT.Length == 11 && !TXT.Contains(" "))
+                {
+                    ulong Count = Convert.ToUInt64(TXT);
+                    if (TCN.Check(TXT))
+                    {
+                        metroLabel2.Visible = true;
+                        metroLabel3.Visible = false;
+                        if (EXEC)
+                            listBox1.SelectedIndex++;
+                    }
+                    else
+                    {
+                        metroLabel2.Visible = false;
+                        metroLabel3.Visible = true;
+                        Kontrol2();
+                    }
+                }
+                else
+                {
+                    if (timer1.Enabled)
+                        Kontrol2();
+                    MetroMessageBox.Show(this, "Kontrol Edilecek TC NO Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception)
+            {
+                if (timer1.Enabled)
+                    Kontrol2();
+                MetroMessageBox.Show(this, "Hatalı Bir TC NO Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Kontrol2()
+        {
+            metroButton1.Enabled = true;
+            metroButton2.Enabled = true;
+            metroButton3.Enabled = true;
+            metroTextBox1.Enabled = true;
+            metroTextBox2.Enabled = true;
+            timer1.Enabled = false;
         }
     }
 }
