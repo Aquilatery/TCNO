@@ -46,6 +46,7 @@
             // metroButton1
             // 
             this.metroButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton1.Enabled = false;
             this.metroButton1.Location = new System.Drawing.Point(205, 92);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(142, 55);
@@ -82,8 +83,7 @@
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBox1.CustomButton.UseSelectable = true;
             this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[] {
-        "1"};
+            this.metroTextBox1.Lines = new string[0];
             this.metroTextBox1.Location = new System.Drawing.Point(205, 63);
             this.metroTextBox1.MaxLength = 3;
             this.metroTextBox1.Name = "metroTextBox1";
@@ -95,12 +95,12 @@
             this.metroTextBox1.ShortcutsEnabled = true;
             this.metroTextBox1.Size = new System.Drawing.Size(142, 23);
             this.metroTextBox1.TabIndex = 2;
-            this.metroTextBox1.Text = "1";
             this.metroTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.metroTextBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Italic);
+            this.metroTextBox1.TextChanged += new System.EventHandler(this.metroTextBox1_TextChanged);
             // 
             // metroTextBox2
             // 
@@ -133,10 +133,12 @@
             this.metroTextBox2.UseSelectable = true;
             this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Italic);
+            this.metroTextBox2.TextChanged += new System.EventHandler(this.metroTextBox2_TextChanged);
             // 
             // metroButton2
             // 
             this.metroButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton2.Enabled = false;
             this.metroButton2.Location = new System.Drawing.Point(205, 402);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(142, 55);
@@ -262,4 +264,3 @@
         private System.Windows.Forms.Timer timer1;
     }
 }
-

@@ -29,21 +29,26 @@ namespace TCN
 
         public string Create(Random Random)
         {
-            var VE = Random.Next(100000000, 1000000000);
-            var N1 = VE % 10;
-            var N2 = (VE / 10) % 10;
-            var N3 = (VE / 100) % 10;
-            var N4 = (VE / 1000) % 10;
-            var N5 = (VE / 10000) % 10;
-            var N6 = (VE / 100000) % 10;
-            var N7 = (VE / 1000000) % 10;
-            var N8 = (VE / 10000000) % 10;
-            var N9 = VE / 100000000;
-            var SP = N1 + N3 + N5 + N7 + N9;
-            var DP = N2 + N4 + N6 + N8;
-            var First = ((SP * 7) - DP) % 10;
-            var Last = (SP + DP + First) % 10;
-            return "" + VE + First + Last;
+            string R;
+            do
+            {
+                var VE = Random.Next(100000000, 1000000000);
+                var N1 = VE % 10;
+                var N2 = (VE / 10) % 10;
+                var N3 = (VE / 100) % 10;
+                var N4 = (VE / 1000) % 10;
+                var N5 = (VE / 10000) % 10;
+                var N6 = (VE / 100000) % 10;
+                var N7 = (VE / 1000000) % 10;
+                var N8 = (VE / 10000000) % 10;
+                var N9 = VE / 100000000;
+                var SP = N1 + N3 + N5 + N7 + N9;
+                var DP = N2 + N4 + N6 + N8;
+                var First = ((SP * 7) - DP) % 10;
+                var Last = (SP + DP + First) % 10;
+                R = "" + VE + First + Last;
+            } while (R.Contains("-"));
+            return R;
         }
     }
 }

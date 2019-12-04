@@ -10,6 +10,4 @@ E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.GenerateResource.cache
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.CopyComplete
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.exe
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.pdb
-E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.exe.CodeAnalysisLog.xml
-E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.exe.lastcodeanalysissucceeded
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csprojAssemblyReference.cache

@@ -1,15 +1,13 @@
-﻿using MetroFramework;
+﻿using TCN;
 using System;
+using MetroFramework;
 using System.Windows.Forms;
-using TCN;
 
 namespace TCNO
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         static readonly NO TCN = new NO();
-
-        int Count2;
 
         public Form1()
         {
@@ -27,12 +25,17 @@ namespace TCNO
             {
                 if (!String.IsNullOrEmpty(metroTextBox1.Text) && !String.IsNullOrWhiteSpace(metroTextBox1.Text) && !metroTextBox1.Text.StartsWith("0") && !metroTextBox1.Text.Contains(" "))
                 {
-                    Int32 Count = Convert.ToInt32(metroTextBox1.Text);
-                    Count2 += Count;
+                    int Count = Convert.ToInt32(metroTextBox1.Text);
                     Random Random = new Random();
                     for (int C = 0; C < Count; C++)
-                        listBox1.Items.Add(TCN.Create(Random));
-                    metroLabel1.Text = "Eleman Sayısı: " + Count2;
+                    {
+                        string GTCN = TCN.Create(Random);
+                        if (!listBox1.Items.Contains(GTCN))
+                            listBox1.Items.Add(GTCN);
+                        else
+                            C--;
+                    }
+                    metroLabel1.Text = "Eleman Sayısı: " + listBox1.Items.Count;
                     metroButton3.Enabled = true;
                     metroButton4.Enabled = true;
                 }
@@ -55,7 +58,7 @@ namespace TCNO
             listBox1.Items.Clear();
             metroLabel1.Text = "Eleman Sayısı: 0";
             metroTextBox2.Text = "";
-            Count2 = 0;
+            metroButton2.Enabled = false;
             metroLabel2.Visible = false;
             metroLabel3.Visible = false;
             metroButton3.Enabled = false;
@@ -82,17 +85,6 @@ namespace TCNO
         {
             if (listBox1.SelectedIndex >= 0)
                 metroTextBox2.Text = listBox1.SelectedItem.ToString();
-        }
-
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex == listBox1.Items.Count - 1)
-            {
-                Kontrol(listBox1.SelectedItem.ToString());
-                Kontrol2();
-            }
-            else
-                Kontrol(listBox1.SelectedItem.ToString(), true);
         }
 
         private void Kontrol(string TXT, bool EXEC = false)
@@ -133,12 +125,57 @@ namespace TCNO
 
         private void Kontrol2()
         {
-            metroButton1.Enabled = true;
-            metroButton2.Enabled = true;
-            metroButton3.Enabled = true;
-            metroTextBox1.Enabled = true;
-            metroTextBox2.Enabled = true;
             timer1.Enabled = false;
+            metroTextBox1.Enabled = true;
+            BTN1();
+            metroTextBox2.Enabled = true;
+            BTN2();
+            LBX1();
+        }
+
+        private void metroTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            BTN1();
+        }
+
+        private void metroTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            BTN2();
+        }
+
+        private void BTN1()
+        {
+            if (metroTextBox1.Text.Length > 0 && !metroTextBox1.Text.StartsWith("0"))
+                metroButton1.Enabled = true;
+            else
+                metroButton1.Enabled = false;
+        }
+
+        private void BTN2()
+        {
+            if (metroTextBox2.Text.Length == 11 && !timer1.Enabled)
+                metroButton2.Enabled = true;
+            else
+                metroButton2.Enabled = false;
+        }
+
+        private void LBX1()
+        {
+            if (listBox1.Items.Count > 0)
+                metroButton3.Enabled = true;
+            else
+                metroButton3.Enabled = false;
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == listBox1.Items.Count - 1)
+            {
+                Kontrol(listBox1.SelectedItem.ToString());
+                Kontrol2();
+            }
+            else
+                Kontrol(listBox1.SelectedItem.ToString(), true);
         }
     }
 }
