@@ -4,11 +4,12 @@ E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.pdb
 E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\MetroFramework.Design.dll
 E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\MetroFramework.dll
 E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\MetroFramework.Fonts.dll
-E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csprojAssemblyReference.cache
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.Form1.resources
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.Properties.Resources.resources
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.GenerateResource.cache
-E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.CoreCompileInputs.cache
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.CopyComplete
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.exe
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.pdb
+E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.exe.CodeAnalysisLog.xml
+E:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.exe.lastcodeanalysissucceeded
+E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csprojAssemblyReference.cache

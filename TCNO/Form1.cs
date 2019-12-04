@@ -33,14 +33,15 @@ namespace TCNO
                     for (int C = 0; C < Count; C++)
                         listBox1.Items.Add(TCN.Create(Random));
                     metroLabel1.Text = "Eleman Sayısı: " + Count2;
+                    metroButton3.Enabled = true;
                     metroButton4.Enabled = true;
                 }
                 else
                     MetroMessageBox.Show(this, "Üretilecek TC NO Sayısını Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch (Exception)
+            catch
             {
-                MetroMessageBox.Show(this, "Hatalı Bir TC NO Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this, "Hatalı Bir TC NO Sayısı Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -57,6 +58,7 @@ namespace TCNO
             Count2 = 0;
             metroLabel2.Visible = false;
             metroLabel3.Visible = false;
+            metroButton3.Enabled = false;
             metroButton4.Enabled = false;
         }
 
@@ -121,7 +123,7 @@ namespace TCNO
                     MetroMessageBox.Show(this, "Kontrol Edilecek TC NO Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch (Exception)
+            catch
             {
                 if (timer1.Enabled)
                     Kontrol2();

@@ -159,6 +159,7 @@
             // metroButton3
             // 
             this.metroButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton3.Enabled = false;
             this.metroButton3.Location = new System.Drawing.Point(204, 206);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(142, 55);
@@ -238,7 +239,7 @@
             this.Name = "Form1";
             this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "TCNO v1.2";
+            this.Text = "TCNO v1.3";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
