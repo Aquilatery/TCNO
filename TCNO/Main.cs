@@ -158,6 +158,8 @@ namespace TCNO
             {
                 if (!String.IsNullOrEmpty(metroTextBox1.Text) && !String.IsNullOrWhiteSpace(metroTextBox1.Text) && !metroTextBox1.Text.StartsWith("0") && !metroTextBox1.Text.Contains(" "))
                 {
+                    metroButton3.Enabled = false;
+                    metroButton4.Enabled = false;
                     int Count = Convert.ToInt32(metroTextBox1.Text);
                     Random RNDM = new Random();
                     for (int C = 0; C < Count; C++)

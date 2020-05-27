@@ -254,7 +254,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Resizable = false;
-            this.Text = "TCNO v1.4";
+            this.Text = "TCNO v1.5";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Close);
             this.ResumeLayout(false);

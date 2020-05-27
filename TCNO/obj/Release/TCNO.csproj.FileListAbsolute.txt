@@ -11,3 +11,4 @@ E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.exe
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.pdb
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csprojAssemblyReference.cache
 E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.Main.resources
+E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.CoreCompileInputs.cache
