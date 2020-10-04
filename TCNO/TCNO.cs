@@ -12,8 +12,8 @@ namespace TCNO
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             Control.CheckForIllegalCrossThreadCalls = false;
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
         }
     }

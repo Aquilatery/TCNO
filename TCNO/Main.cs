@@ -1,11 +1,13 @@
 ﻿using TCN;
 using System;
-using MetroFramework;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Controls;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace TCNO
 {
-    public partial class Main : MetroFramework.Forms.MetroForm
+    public partial class Main : PoisonForm
     {
         static readonly NO TCN = new NO();
 
@@ -14,7 +16,7 @@ namespace TCNO
             InitializeComponent();
         }
 
-        private void MetroButton1_Click(object sender, EventArgs e)
+        private void PoisonButton1_Click(object sender, EventArgs e)
         {
             if (Job.IsBusy)
                 Job.CancelAsync();
@@ -22,35 +24,35 @@ namespace TCNO
                 Job.RunWorkerAsync();
         }
 
-        private void MetroButton2_Click(object sender, EventArgs e)
+        private void PoisonButton2_Click(object sender, EventArgs e)
         {
-            Kontrol(metroTextBox2.Text);
+            Kontrol(poisonTextBox2.Text);
         }
 
-        private void MetroButton3_Click(object sender, EventArgs e)
+        private void PoisonButton3_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            metroLabel1.Text = "Eleman Sayısı: 0";
-            metroTextBox2.Text = "";
-            metroButton2.Enabled = false;
-            metroLabel2.Visible = false;
-            metroLabel3.Visible = false;
-            metroButton3.Enabled = false;
-            metroButton4.Enabled = false;
+            poisonLabel1.Text = "Eleman Sayısı: 0";
+            poisonTextBox2.Text = "";
+            poisonButton2.Enabled = false;
+            poisonLabel2.Visible = false;
+            poisonLabel3.Visible = false;
+            poisonButton3.Enabled = false;
+            poisonButton4.Enabled = false;
         }
 
-        private void MetroButton4_Click(object sender, EventArgs e)
+        private void PoisonButton4_Click(object sender, EventArgs e)
         {
             if (timer1.Enabled)
                 Kontrol2();
             else if (listBox1.Items.Count >= 1)
             {
                 listBox1.SelectedIndex = 0;
-                metroButton1.Enabled = false;
-                metroButton2.Enabled = false;
-                metroButton3.Enabled = false;
-                metroTextBox1.Enabled = false;
-                metroTextBox2.Enabled = false;
+                poisonButton1.Enabled = false;
+                poisonButton2.Enabled = false;
+                poisonButton3.Enabled = false;
+                poisonTextBox1.Enabled = false;
+                poisonTextBox2.Enabled = false;
                 timer1.Enabled = true;
             }
         }
@@ -58,27 +60,27 @@ namespace TCNO
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex >= 0)
-                metroTextBox2.Text = listBox1.SelectedItem.ToString();
+                poisonTextBox2.Text = listBox1.SelectedItem.ToString();
         }
 
         private void Kontrol(string TXT, bool EXEC = false)
         {
             try
             {
-                if (!String.IsNullOrEmpty(TXT) && !String.IsNullOrWhiteSpace(TXT) && TXT.Length == 11 && !TXT.Contains(" "))
+                if (!string.IsNullOrEmpty(TXT) && !string.IsNullOrWhiteSpace(TXT) && TXT.Length == 11 && !TXT.Contains(" "))
                 {
                     ulong Count = Convert.ToUInt64(TXT);
                     if (TCN.Check(TXT))
                     {
-                        metroLabel2.Visible = true;
-                        metroLabel3.Visible = false;
+                        poisonLabel2.Visible = true;
+                        poisonLabel3.Visible = false;
                         if (EXEC)
                             listBox1.SelectedIndex++;
                     }
                     else
                     {
-                        metroLabel2.Visible = false;
-                        metroLabel3.Visible = true;
+                        poisonLabel2.Visible = false;
+                        poisonLabel3.Visible = true;
                         Kontrol2();
                     }
                 }
@@ -86,59 +88,59 @@ namespace TCNO
                 {
                     if (timer1.Enabled)
                         Kontrol2();
-                    MetroMessageBox.Show(this, "Kontrol Edilecek TC NO Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    PoisonMessageBox.Show(this, "Kontrol Edilecek TC NO Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch
             {
                 if (timer1.Enabled)
                     Kontrol2();
-                MetroMessageBox.Show(this, "Hatalı Bir TC NO Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PoisonMessageBox.Show(this, "Hatalı Bir TC NO Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void Kontrol2()
         {
             timer1.Enabled = false;
-            metroTextBox1.Enabled = true;
+            poisonTextBox1.Enabled = true;
             BTN1();
-            metroTextBox2.Enabled = true;
+            poisonTextBox2.Enabled = true;
             BTN2();
             LBX1();
         }
 
-        private void MetroTextBox1_TextChanged(object sender, EventArgs e)
+        private void PoisonTextBox1_TextChanged(object sender, EventArgs e)
         {
             BTN1();
         }
 
-        private void MetroTextBox2_TextChanged(object sender, EventArgs e)
+        private void PoisonTextBox2_TextChanged(object sender, EventArgs e)
         {
             BTN2();
         }
 
         private void BTN1()
         {
-            if (metroTextBox1.Text.Length > 0 && !metroTextBox1.Text.StartsWith("0"))
-                metroButton1.Enabled = true;
+            if (poisonTextBox1.Text.Length > 0 && !poisonTextBox1.Text.StartsWith("0"))
+                poisonButton1.Enabled = true;
             else
-                metroButton1.Enabled = false;
+                poisonButton1.Enabled = false;
         }
 
         private void BTN2()
         {
-            if (metroTextBox2.Text.Length == 11 && !timer1.Enabled)
-                metroButton2.Enabled = true;
+            if (poisonTextBox2.Text.Length == 11 && !timer1.Enabled)
+                poisonButton2.Enabled = true;
             else
-                metroButton2.Enabled = false;
+                poisonButton2.Enabled = false;
         }
 
         private void LBX1()
         {
             if (listBox1.Items.Count > 0)
-                metroButton3.Enabled = true;
+                poisonButton3.Enabled = true;
             else
-                metroButton3.Enabled = false;
+                poisonButton3.Enabled = false;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -152,15 +154,15 @@ namespace TCNO
                 Kontrol(listBox1.SelectedItem.ToString(), true);
         }
 
-        private void Job_Work(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void Job_Work(object sender, DoWorkEventArgs e)
         {
             try
             {
-                if (!String.IsNullOrEmpty(metroTextBox1.Text) && !String.IsNullOrWhiteSpace(metroTextBox1.Text) && !metroTextBox1.Text.StartsWith("0") && !metroTextBox1.Text.Contains(" "))
+                if (!string.IsNullOrEmpty(poisonTextBox1.Text) && !string.IsNullOrWhiteSpace(poisonTextBox1.Text) && !poisonTextBox1.Text.StartsWith("0") && !poisonTextBox1.Text.Contains(" "))
                 {
-                    metroButton3.Enabled = false;
-                    metroButton4.Enabled = false;
-                    int Count = Convert.ToInt32(metroTextBox1.Text);
+                    poisonButton3.Enabled = false;
+                    poisonButton4.Enabled = false;
+                    int Count = Convert.ToInt32(poisonTextBox1.Text);
                     Random RNDM = new Random();
                     for (int C = 0; C < Count; C++)
                     {
@@ -168,21 +170,21 @@ namespace TCNO
                         if (!listBox1.Items.Contains(GTCN))
                         {
                             listBox1.Items.Add(GTCN);
-                            metroLabel1.Text = "Eleman Sayısı: " + listBox1.Items.Count;
+                            poisonLabel1.Text = "Eleman Sayısı: " + listBox1.Items.Count;
                             listBox1.SelectedIndex = listBox1.Items.Count - 1;
                         }
                         else
                             C--;
                     }
-                    metroButton3.Enabled = true;
-                    metroButton4.Enabled = true;
+                    poisonButton3.Enabled = true;
+                    poisonButton4.Enabled = true;
                 }
                 else
-                    MetroMessageBox.Show(this, "Üretilecek TC NO Sayısını Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    PoisonMessageBox.Show(this, "Üretilecek TC NO Sayısını Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch
             {
-                MetroMessageBox.Show(this, "Hatalı Bir TC NO Sayısı Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PoisonMessageBox.Show(this, "Hatalı Bir TC NO Sayısı Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

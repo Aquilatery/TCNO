@@ -15,9 +15,6 @@ E:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.CoreCompileInputs.cache
 G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.exe.config
 G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.exe
 G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\TCNO.pdb
-G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\MetroFramework.Design.dll
-G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\MetroFramework.dll
-G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\MetroFramework.Fonts.dll
 G:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csprojAssemblyReference.cache
 G:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.Main.resources
 G:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.Properties.Resources.resources
@@ -26,3 +23,6 @@ G:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.CoreCompileInputs.cache
 G:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.csproj.CopyComplete
 G:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.exe
 G:\MyProject\TCNO\App\TCNO\TCNO\obj\Release\TCNO.pdb
+G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\ReaLTaiizor.dll
+G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\ReaLTaiizor.pdb
+G:\MyProject\TCNO\App\TCNO\TCNO\bin\Release\ReaLTaiizor.dll.config
