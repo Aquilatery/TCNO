@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace TCNO
 {
-    static class TCNO
+    internal static class TCNO
     {
         /// <summary>
         /// Uygulamanın ana girdi noktası.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Control.CheckForIllegalCrossThreadCalls = false;

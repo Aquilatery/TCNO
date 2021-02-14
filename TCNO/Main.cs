@@ -1,15 +1,16 @@
-﻿using TCN;
-using System;
+﻿using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Controls;
-using System.Windows.Forms;
+using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using TCN;
 
 namespace TCNO
 {
     public partial class Main : PoisonForm
     {
-        static readonly NO TCN = new NO();
+        private static readonly NO TCN = new NO();
 
         public Main()
         {
@@ -19,9 +20,13 @@ namespace TCNO
         private void PoisonButton1_Click(object sender, EventArgs e)
         {
             if (Job.IsBusy)
+            {
                 Job.CancelAsync();
+            }
             else
+            {
                 Job.RunWorkerAsync();
+            }
         }
 
         private void PoisonButton2_Click(object sender, EventArgs e)
@@ -44,7 +49,9 @@ namespace TCNO
         private void PoisonButton4_Click(object sender, EventArgs e)
         {
             if (timer1.Enabled)
+            {
                 Kontrol2();
+            }
             else if (listBox1.Items.Count >= 1)
             {
                 listBox1.SelectedIndex = 0;
@@ -60,7 +67,9 @@ namespace TCNO
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex >= 0)
+            {
                 poisonTextBox2.Text = listBox1.SelectedItem.ToString();
+            }
         }
 
         private void Kontrol(string TXT, bool EXEC = false)
@@ -75,7 +84,9 @@ namespace TCNO
                         poisonLabel2.Visible = true;
                         poisonLabel3.Visible = false;
                         if (EXEC)
+                        {
                             listBox1.SelectedIndex++;
+                        }
                     }
                     else
                     {
@@ -87,14 +98,20 @@ namespace TCNO
                 else
                 {
                     if (timer1.Enabled)
+                    {
                         Kontrol2();
+                    }
+
                     PoisonMessageBox.Show(this, "Kontrol Edilecek TC NO Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch
             {
                 if (timer1.Enabled)
+                {
                     Kontrol2();
+                }
+
                 PoisonMessageBox.Show(this, "Hatalı Bir TC NO Girdiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -122,25 +139,37 @@ namespace TCNO
         private void BTN1()
         {
             if (poisonTextBox1.Text.Length > 0 && !poisonTextBox1.Text.StartsWith("0"))
+            {
                 poisonButton1.Enabled = true;
+            }
             else
+            {
                 poisonButton1.Enabled = false;
+            }
         }
 
         private void BTN2()
         {
             if (poisonTextBox2.Text.Length == 11 && !timer1.Enabled)
+            {
                 poisonButton2.Enabled = true;
+            }
             else
+            {
                 poisonButton2.Enabled = false;
+            }
         }
 
         private void LBX1()
         {
             if (listBox1.Items.Count > 0)
+            {
                 poisonButton3.Enabled = true;
+            }
             else
+            {
                 poisonButton3.Enabled = false;
+            }
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -151,7 +180,9 @@ namespace TCNO
                 Kontrol2();
             }
             else
+            {
                 Kontrol(listBox1.SelectedItem.ToString(), true);
+            }
         }
 
         private void Job_Work(object sender, DoWorkEventArgs e)
@@ -174,13 +205,18 @@ namespace TCNO
                             listBox1.SelectedIndex = listBox1.Items.Count - 1;
                         }
                         else
+                        {
                             C--;
+                        }
                     }
+
                     poisonButton3.Enabled = true;
                     poisonButton4.Enabled = true;
                 }
                 else
+                {
                     PoisonMessageBox.Show(this, "Üretilecek TC NO Sayısını Belirtiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch
             {
@@ -191,7 +227,9 @@ namespace TCNO
         private void Main_Close(object sender, FormClosingEventArgs e)
         {
             if (Job.IsBusy)
+            {
                 e.Cancel = true;
+            }
         }
     }
 }
