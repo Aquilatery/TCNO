@@ -2,7 +2,6 @@
 using ReaLTaiizor.Forms;
 using System;
 using System.ComponentModel;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TCN;
 
@@ -10,7 +9,7 @@ namespace TCNO
 {
     public partial class Main : PoisonForm
     {
-        private static readonly NO TCN = new NO();
+        private static readonly NO TCN = new();
 
         public Main()
         {
@@ -194,7 +193,7 @@ namespace TCNO
                     poisonButton3.Enabled = false;
                     poisonButton4.Enabled = false;
                     int Count = Convert.ToInt32(poisonTextBox1.Text);
-                    Random RNDM = new Random();
+                    Random RNDM = new();
                     for (int C = 0; C < Count; C++)
                     {
                         string GTCN = TCN.Create(RNDM);
