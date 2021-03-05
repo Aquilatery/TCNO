@@ -238,8 +238,8 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(369, 503);
             this.Controls.Add(this.poisonButton4);
             this.Controls.Add(this.poisonLabel3);
@@ -255,7 +255,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Resizable = false;
-            this.Text = "TCNO v1.5";
+            this.Text = "TCNO v1.6";
             this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Close);
             this.ResumeLayout(false);
