@@ -4,7 +4,7 @@ namespace TCN
 {
     public class NO
     {
-        public bool Check(string TCNO)
+        public static bool Check(string TCNO)
         {
             if (TCNO.Length == 11)
             {
@@ -19,6 +19,7 @@ namespace TCN
                 int N9 = Convert.ToInt32(TCNO[8].ToString());
                 int N10 = Convert.ToInt32(TCNO[9].ToString());
                 int N11 = Convert.ToInt32(TCNO[10].ToString());
+
                 if (((((N1 + N3 + N5 + N7 + N9) * 7) - (N2 + N4 + N6 + N8)) % 10) != N10)
                 {
                     return false;
@@ -32,9 +33,10 @@ namespace TCN
             }
         }
 
-        public string Create(Random Random)
+        public static string Create(Random Random)
         {
             string R;
+
             do
             {
                 int VE = Random.Next(100000000, 1000000000);
@@ -53,6 +55,7 @@ namespace TCN
                 int Last = (SP + DP + First) % 10;
                 R = "" + VE + First + Last;
             } while (R.Contains("-"));
+
             return R;
         }
     }

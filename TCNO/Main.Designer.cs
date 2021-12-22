@@ -255,7 +255,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Resizable = false;
-            this.Text = "TCNO v1.6";
+            this.Text = "TCNO v1.7";
             this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Close);
             this.ResumeLayout(false);

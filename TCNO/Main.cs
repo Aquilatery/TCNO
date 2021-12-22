@@ -9,8 +9,6 @@ namespace TCNO
 {
     public partial class Main : PoisonForm
     {
-        private static readonly NO TCN = new();
-
         public Main()
         {
             InitializeComponent();
@@ -78,7 +76,7 @@ namespace TCNO
                 if (!string.IsNullOrEmpty(TXT) && !string.IsNullOrWhiteSpace(TXT) && TXT.Length == 11 && !TXT.Contains(" "))
                 {
                     ulong Count = Convert.ToUInt64(TXT);
-                    if (TCN.Check(TXT))
+                    if (NO.Check(TXT))
                     {
                         poisonLabel2.Visible = true;
                         poisonLabel3.Visible = false;
@@ -196,7 +194,7 @@ namespace TCNO
                     Random RNDM = new();
                     for (int C = 0; C < Count; C++)
                     {
-                        string GTCN = TCN.Create(RNDM);
+                        string GTCN = NO.Create(RNDM);
                         if (!listBox1.Items.Contains(GTCN))
                         {
                             listBox1.Items.Add(GTCN);
